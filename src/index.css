@@ -38,5 +38,5 @@ body {
   font-size: 75px;
   color: white;
   font-family: 'Oswald', sans-serif;
-  animation: flicker 1s ease-out infinite;
+  animation: flicker 1.25s ease-out infinite;
 }
