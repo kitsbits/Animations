@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import { TimelineMax } from 'gsap';
+import { TimelineMax, Elastic } from 'gsap';
 import _ from 'lodash';
 
 import { colors } from './theme';
@@ -30,6 +30,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: flex-end;
   overflow: hidden;
+  // overflow: scroll;
 `;
 
 const IntroOverlay = styled.div`
@@ -51,11 +52,14 @@ const Title = styled(PBold)`
   margin-top: 82px;
 `;
 
-const OverlayTitle = styled(Title)`
+const OverlayTitle = styled(PBold)`
   color: white;
   // animation: ${flicker} 1.15s ease-out infinite;
   cursor: pointer;
   text-align: right;
+  font-size: 75px;
+  line-height: 75px;
+  position: relative;
 `;
 
 const ContentWrapper = styled.div`
@@ -71,23 +75,29 @@ class App extends React.Component {
   enter = () => {
     const overlayTitle = this.overlayRef.querySelector('.overlay-title');
     this.enterAnimation = new TimelineMax()
-      .set(overlayTitle, { animation: null })
-      .to(overlayTitle, 0.1, { opacity: 1 })
+      .to(overlayTitle, 0.1, { opacity: 1, ease: Elastic.easeOut })
       .to(overlayTitle, 0.1, { opacity: 0.6 })
       .to(overlayTitle, 0.15, { opacity: 0.8 })
-      .to(overlayTitle, 0.1, { opacity: 0.6 })
+      .to(overlayTitle, 0.1, { opacity: 0.5, delay: 0.15, ease: Elastic.easeOut })
       .to(overlayTitle, 0.1, { opacity: 0.9 })
-      .to(overlayTitle, 0.15, { opacity: 0.5 })
-      .to(overlayTitle, 0.2, { opacity: 0.2 })
+      .to(overlayTitle, 0.15, { opacity: 0.7, ease: Elastic.easeOut })
+      .to(overlayTitle, 0.1, { opacity: 0.1, delay: 0.2 })
       .to(overlayTitle, 0.15, { opacity: 0.6 })
-      .to(overlayTitle, 0.1, { opacity: 0.4 })
-      .to(overlayTitle, 0.1, { opacity: 0, delay: 0.25 })
-      .to(this.overlayRef, 0.75, { opacity: 0, overflow: 'scroll', delay: 0.5 })
+      .to(overlayTitle, 0.1, { opacity: 0.4, ease: Elastic.easeOut })
+      .to(overlayTitle, 0.15, { opacity: 0.5 })
+      .to(overlayTitle, 0.1, { opacity: 0.1, delay: 0.1 })
+      .to(overlayTitle, 0.15, { opacity: 0.7 })
+      .addLabel('last')
+      .to(overlayTitle, 0.25, { fontSize: '55px', lineHeight: '55px', marginTop: '82px', ease: Elastic.easeIn, delay: 0.2 }, 'last')
+      .to(overlayTitle, 0.25, { autoAlpha: 0, ease: Elastic.easeIn, delay: 0.3 }, 'last')
+      .to(this.overlayRef, 0.65, { opacity: 0, ease: Elastic.easeIn, delay: 0.4 }, 'last')
+      .set(this.overlayRef, { display: 'none' })
+      .set(this.contextRef, { overflow: 'scroll' })
   }
 
   render() {
     return (
-      <Wrapper>
+      <Wrapper ref={(ref) => { this.contextRef = ref; }}>
         <Title>Intro to Animation</Title>
         <ContentWrapper>
           <Transitions />
