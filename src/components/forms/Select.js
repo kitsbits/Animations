@@ -4,7 +4,7 @@ import _ from 'lodash';
 
 import { states } from '../../utils';
 import { colors } from '../../theme';
-import { Wrapper, Label, ErrMsg } from './Input';
+import { Wrapper, Label, ErrMsg } from './styles';
 
 const FauxSelect = styled.div`
   width: 320px;

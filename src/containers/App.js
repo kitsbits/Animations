@@ -98,10 +98,10 @@ class App extends React.Component {
       <Wrapper ref={(ref) => { this.contextRef = ref; }}>
         <Title>Intro to Animation</Title>
         <ContentWrapper>
-          <Transitions />
+          {/* <Transitions /> */}
           {/* <Keyframes /> */}
           {/* <GSAP /> */}
-          {/* <FormExample /> */}
+          <FormExample />
         </ContentWrapper>
         {!hasEntered &&
           <IntroOverlay ref={(ref) => { this.overlayRef = ref; }}>

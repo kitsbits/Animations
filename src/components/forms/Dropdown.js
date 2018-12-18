@@ -17,15 +17,16 @@ import {
   Label,
   ErrMsg,
   InputField,
-} from './Input';
+} from './styles';
 
 const FieldWrapper = styled(Wrapper)`
   z-index: 1;
+  user-select: none;
 `;
 
 const Select = styled(InputField)``;
 
-export const CaretWrapper = styled.div`
+const CaretWrapper = styled.div`
   position: absolute;
   height: 32px;
   width: 32px;

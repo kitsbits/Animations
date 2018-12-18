@@ -1,13 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { colors } from '../theme';
-import { BigWords, LittleWords } from './styles.js'
+import { WordsWrapperBase, BigWords, LittleWords } from './styles.js'
 
 const Wrapper = styled.section``;
 
-const WordsWrapper = styled.article`
-  max-width: 80%;
-  margin: 0 auto 75px;
+const WordsWrapper = styled(WordsWrapperBase)`
   border-bottom: 1px solid ${colors.orange};
 `;
 
@@ -29,7 +27,7 @@ export default function Transitions() {
           Transitions: use them.
       </BigWords>
         <LittleWords>
-          You can do a lot with CSS! You can enhance usability and beautify your site, simply by adding transitions (no fancy animations needed).
+          You can do a lot with CSS! Enhance usability and beautify your site simply by adding transitions (no fancy animations needed).
       </LittleWords>
       </WordsWrapper>
       <ContentWrapper>
