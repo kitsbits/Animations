@@ -9,6 +9,7 @@ import FormExample from '../components/FormExample';
 import Transitions from '../components/Transitions';
 import Keyframes from '../components/Keyframes';
 import GSAP from '../components/GSAP';
+import Takeaways from '../components/Takeaways';
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -101,7 +102,8 @@ class App extends React.Component {
           {/* <Transitions /> */}
           {/* <Keyframes /> */}
           {/* <GSAP /> */}
-          <FormExample />
+          {/* <FormExample /> */}
+          <Takeaways />
         </ContentWrapper>
         {!hasEntered &&
           <IntroOverlay ref={(ref) => { this.overlayRef = ref; }}>

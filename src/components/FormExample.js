@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import _ from 'lodash';
-import { states } from '../utils';
 
+import { WordsWrapper, BigWords, LittleWords } from './styles'
 import { colors } from '../theme';
 import PBold from './text/PBold';
 import Input from './forms/Input';
@@ -10,7 +10,9 @@ import Dropdown from './forms/Dropdown';
 import Select from './forms/Select';
 import Checkbox from './buttons/Checkbox';
 
-const Wrapper = styled.section`
+const Wrapper = styled.section``;
+
+const ContentWrapper = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -65,26 +67,30 @@ class Transitions extends React.Component { // eslint-disable-line
   render() {
     return (
       <Wrapper>
-        <Column className="no-transition">
-          {/* <Input label="first name" /> */}
-          <Input label="email" />
-          <Input label="password" inputType="password" />
-          <Select />
-          <AccentLine />
-          <Checkbox text={AGREE_TEXT} />
-          <AccentLine />
-          <SubmitButton>SIGN IN</SubmitButton>
-        </Column>
-        <Column>
-          {/* <Input label="first name" /> */}
-          <Input label="email" />
-          <Input label="password" inputType="password" />
-          <Dropdown />
-          <AccentLine />
-          <Checkbox text={AGREE_TEXT} />
-          <AccentLine />
-          <SubmitButton>SIGN IN</SubmitButton>
-        </Column>
+        <WordsWrapper>
+          <BigWords>Putting it all together</BigWords>
+          <LittleWords>...in the boringest way possible: forms.</LittleWords>
+        </WordsWrapper>
+        <ContentWrapper>
+          <Column className="no-transition">
+            <Input label="email" />
+            <Input label="password" inputType="password" />
+            <Select />
+            <AccentLine />
+            <Checkbox text={AGREE_TEXT} />
+            <AccentLine />
+            <SubmitButton>SIGN IN</SubmitButton>
+          </Column>
+          <Column>
+            <Input label="email" />
+            <Input label="password" inputType="password" />
+            <Dropdown />
+            <AccentLine />
+            <Checkbox text={AGREE_TEXT} />
+            <AccentLine />
+            <SubmitButton>SIGN IN</SubmitButton>
+          </Column>
+        </ContentWrapper>
       </Wrapper>
     );
   }

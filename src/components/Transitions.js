@@ -1,13 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors } from '../theme';
-import { WordsWrapperBase, BigWords, LittleWords } from './styles.js'
+import { WordsWrapper, BigWords, LittleWords } from './styles';
 
 const Wrapper = styled.section``;
-
-const WordsWrapper = styled(WordsWrapperBase)`
-  border-bottom: 1px solid ${colors.orange};
-`;
 
 const ContentWrapper = styled.div`
   display: flex;
