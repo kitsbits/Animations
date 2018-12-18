@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { TimelineMax, Elastic } from 'gsap';
+import { TimelineMax, Elastic, TweenMax } from 'gsap';
 import _ from 'lodash';
 
 import { colors } from '../theme';
@@ -15,8 +15,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  // overflow: hidden;
-  overflow: auto;
+  overflow: hidden;
   padding: 80px 0 160px;
 `;
 
@@ -29,6 +28,7 @@ const IntroOverlay = styled.div`
   width: 100vw;
   background-color: ${colors.darkGrey};
   overflow: scroll;
+  z-index: 2;
 `;
 
 const Title = styled(PBold)`
@@ -58,6 +58,10 @@ const ContentWrapper = styled.div`
 class App extends React.Component {
   state = {
     hasEntered: true,
+  }
+
+  componentDidMount() {
+    TweenMax.set(this.contextRef, { overflow: 'scroll' });
   }
 
   enter = (hasEntered) => {
@@ -95,11 +99,11 @@ class App extends React.Component {
           {/* <GSAP /> */}
           <FormExample />
         </ContentWrapper>
-        {/* {!hasEntered &&
+        {!hasEntered &&
           <IntroOverlay ref={(ref) => { this.overlayRef = ref; }}>
             <OverlayTitle onClick={() => this.enter(hasEntered)} className="overlay-title">Intro to Animation</OverlayTitle>
           </IntroOverlay>
-        } */}
+        }
       </Wrapper>
     );
   }
