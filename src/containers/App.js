@@ -6,6 +6,7 @@ import _ from 'lodash';
 import { colors } from '../theme';
 import PBold from '../components/text/PBold';
 import FormExample from '../components/FormExample';
+import Transitions from '../components/Transitions';
 import Keyframes from '../components/Keyframes';
 import GSAP from '../components/GSAP';
 
@@ -16,7 +17,6 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: flex-end;
   overflow: hidden;
-  padding: 80px 0 160px;
 `;
 
 const IntroOverlay = styled.div`
@@ -27,7 +27,6 @@ const IntroOverlay = styled.div`
   height: 100vh;
   width: 100vw;
   background-color: ${colors.darkGrey};
-  overflow: scroll;
   z-index: 2;
 `;
 
@@ -61,13 +60,17 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    TweenMax.set(this.contextRef, { overflow: 'scroll' });
+    const { hasEntered } = this.state;
+    if (hasEntered) {
+      TweenMax.set(this.contextRef, { overflow: 'scroll', padding: '80px 0', height: 'auto' });
+    }
   }
 
   enter = (hasEntered) => {
     if (!hasEntered) {
       this.overlayTitle = this.overlayRef.querySelector('.overlay-title');
       this.animateEnter = new TimelineMax()
+        .set(this.contextRef, { padding: '80px 0', height: 'auto' })
         .to(this.overlayTitle, 0.1, { opacity: 1, ease: Elastic.easeOut })
         .to(this.overlayTitle, 0.1, { opacity: 0.6 })
         .to(this.overlayTitle, 0.15, { opacity: 0.8 })
@@ -95,9 +98,10 @@ class App extends React.Component {
       <Wrapper ref={(ref) => { this.contextRef = ref; }}>
         <Title>Intro to Animation</Title>
         <ContentWrapper>
+          <Transitions />
           {/* <Keyframes /> */}
           {/* <GSAP /> */}
-          <FormExample />
+          {/* <FormExample /> */}
         </ContentWrapper>
         {!hasEntered &&
           <IntroOverlay ref={(ref) => { this.overlayRef = ref; }}>

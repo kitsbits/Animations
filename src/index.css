@@ -1,3 +1,7 @@
+/******************/
+/****** BASE ******/
+/******************/
+
 :root {
   --lightGrey: #EEEEEE;
   --darkGrey: #4A4A4A;
@@ -9,7 +13,12 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: white;
 }
+
+/******************/
+/**** keyframs ****/
+/******************/
 
 @keyframes fadeIn {
   0% { opacity: 0; }
@@ -42,28 +51,102 @@ body {
   100% { opacity: 0.3; }
 } */
 
-#page-wrapper {
-  height: 100vh;
-  width: 100vw;
-  background-color: black;
-  animation: fadeIn 1s 0.5s ease-in forwards;
+/******************/
+/* TRANSITIONS.js */
+/******************/
+
+.p {
+  font-size: 18px;
+  line-height: 22px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
+}
+
+.a-button {
+  height: 40px;
+  width: 180px;
+  border-radius: 3px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+  color: var(--orange);
+  border: 1px solid var(--orange);
+  transition: all 0.35s ease;
+}
+
+.a-button:hover {
+  color: white;
+  background-color: var(--orange);
+}
+
+.underline {
+  text-decoration: none;
+  position: relative;
+  color: var(--darkGrey);
+  transition: all 0.35s ease;
+}
+
+.underline::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--orange);
+  transform: translateX(-50%);
+  transition: width 0.35s ease;
+}
+
+.underline:hover::after {
+  width: 100%;
+}
+
+.link {
+  color: var(--darkGrey);
+  transition: color 0.25s ease;
+}
+
+.link:hover {
+  color: var(--orange);
+}
+
+.close {
+  height: 40px;
+  width: 40px;
+  border: 1px solid var(--orange);
+  border-radius: 50px;
+  cursor: pointer;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--orange);
+  font-size: 25px;
 }
 
-#intro-title {
-  font-size: 75px;
-  color: white;
-  font-family: 'Oswald', sans-serif;
-  animation: flicker 1.25s ease-out infinite;
+.close::before {
+  content: '';
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  top: 50%;
+  left: 50%;
+  border-radius: 50px;
+  transform: translate(-50%, -50%) scale(0.5);
+  border: 1px solid var(--orange);
+  transition: opacity 0.25s ease, transform 0.5s ease;
+  opacity: 0;
 }
 
-#fade-in {
-  width: 10px;
-  height: 100px;
-  background-color: var(--purple);
+.close:hover::before {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
 }
+
+/******************/
+/** KEYFRAMES.js **/
+/******************/
 
 .fade-in {
   width: 75px;
@@ -88,3 +171,12 @@ body {
   height: 50px;
   margin-bottom: 10px;
 }
+
+/******************/
+/***** GSAP.js ****/
+/******************/
+
+
+/******************/
+/* FORMEXAMPLE.js */
+/******************/
