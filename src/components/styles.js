@@ -64,7 +64,7 @@ export const A = styled('a')`
   &:after {
     content: '';
     position: absolute;
-    bottom: -5px;
+    bottom: -2px;
     left: 50%;
     width: 0;
     height: 2px;
@@ -75,5 +75,20 @@ export const A = styled('a')`
 
   &:hover::after {
     width: 100%;
+  }
+`;
+
+export const Quote = styled(PDefault)`
+  margin-left: 16px;
+  padding-left: 25px;
+  border-left: 5px solid ${colors.purple};
+  font-size: 32px;
+  line-height: 40px;
+  max-width: 600px;
+  text-align: justify;
+  &:before {
+    font-size: 50px;
+    color: ${colors.purple};
+    margin-right: 25px;
   }
 `;
