@@ -5,14 +5,14 @@ import _ from 'lodash';
 import { colors } from '../../theme';
 import PBold from '../text/PBold';
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   position: relative;
   &:not(:last-child) {
     margin-bottom: 32px;
   }
 `;
 
-const Label = styled.label`
+export const Label = styled.label`
   font-size: 22px;
   line-height: 32px;
   font-family: 'Oswald', sans-serif;
@@ -25,7 +25,7 @@ const Label = styled.label`
   }
 `;
 
-const InputField = styled.input`
+export const InputField = styled.input`
   display: block;
   width: 320px;
   height: 55px;
@@ -50,7 +50,7 @@ const InputField = styled.input`
   }
 `;
 
-const ErrMsg = styled(PBold)`
+export const ErrMsg = styled(PBold)`
   font-size: 12px;
   line-height: 12px;
   letter-spacing: 0.5px;
@@ -70,9 +70,10 @@ const ErrMsg = styled(PBold)`
 class Input extends React.Component {
   state = {
     isInvalid: false,
+    input: '',
   }
 
-  onFocus = (event) => {
+  onFocus = () => {
     const { isInvalid } = this.state;
     if (isInvalid) {
       this.setState({ isInvalid: false });
@@ -84,6 +85,11 @@ class Input extends React.Component {
     if (!value) {
       this.setState({ isInvalid: true });
     }
+  }
+
+  onChange = (event) => {
+    const { value } = event.target;
+    this.setState({ input: value });
   }
 
   render() {

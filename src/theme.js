@@ -6,3 +6,10 @@ export const colors = {
   orange: '#F5A623',
 };
 
+export const barColors = [
+  '#013B7E',
+  '#2C69AF',
+  '#4A90E2',
+  '#A3CAF8',
+];
+

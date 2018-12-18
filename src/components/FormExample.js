@@ -1,9 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import _ from 'lodash';
+import { states } from '../utils';
 
 import { colors } from '../theme';
 import PBold from './text/PBold';
 import Input from './forms/Input';
+import Dropdown from './forms/Dropdown';
+import Select from './forms/Select';
 import Checkbox from './buttons/Checkbox';
 
 const Wrapper = styled.section`
@@ -18,8 +22,8 @@ const Column = styled.div`
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
-  margin-bottom: 75px;
   max-width: 320px;
+  margin: 0 35px 50px;
 `;
 
 const AccentLine = styled.span`
@@ -62,18 +66,20 @@ class Transitions extends React.Component { // eslint-disable-line
     return (
       <Wrapper>
         <Column className="no-transition">
-          <Input label="first name" />
+          {/* <Input label="first name" /> */}
           <Input label="email" />
           <Input label="password" inputType="password" />
+          <Select />
           <AccentLine />
           <Checkbox text={AGREE_TEXT} />
           <AccentLine />
           <SubmitButton>SIGN IN</SubmitButton>
         </Column>
         <Column>
-          <Input label="first name" />
+          {/* <Input label="first name" /> */}
           <Input label="email" />
           <Input label="password" inputType="password" />
+          <Dropdown />
           <AccentLine />
           <Checkbox text={AGREE_TEXT} />
           <AccentLine />
