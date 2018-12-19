@@ -1,3 +1,5 @@
+import { css } from 'styled-components';
+
 export const colors = {
   lightGrey: '#EEEEEE',
   darkGrey: '#4A4A4A',
@@ -12,4 +14,12 @@ export const barColors = [
   '#4A90E2',
   '#A3CAF8',
 ];
+
+export const media = {
+  navBreak: (...args) => css`
+    @media (max-width: 1350px) {
+      ${css(...args)}
+    }
+  `,
+}
 

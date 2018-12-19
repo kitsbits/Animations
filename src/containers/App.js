@@ -1,14 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import { TimelineMax, Elastic, TweenMax } from 'gsap';
+import { TimelineMax, TweenMax, Elastic, Sine } from 'gsap';
 import _ from 'lodash';
 
 import { colors } from '../theme';
 import PBold from '../components/text/PBold';
-import FormExample from '../components/Form';
+import Form from '../components/Form';
+import Nav from '../components/Nav';
 import Transitions from '../components/Transitions';
 import Keyframes from '../components/Keyframes';
-import GSAP from '../components/GSAP';
+import BarChart from '../components/BarChart';
 import Takeaways from '../components/Takeaways';
 import ColorPicker from '../components/ColorPicker';
 
@@ -19,6 +20,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: flex-end;
   overflow: hidden;
+  position: relative;
 `;
 
 const IntroOverlay = styled.div`
@@ -54,17 +56,47 @@ const ContentWrapper = styled.div`
   max-width: 1200px;
   background-color: ${colors.lightGrey};
   padding: 75px 0 25px;
+  transition: height 0.35s ease;
 `;
 
+const components = {
+  Transitions,
+  Keyframes,
+  'Color Picker': ColorPicker,
+  'Bar Chart': BarChart,
+  Form,
+  Takeaways,
+};
+
+const FADE_EASE = Sine.easeInOut;
+
 class App extends React.Component {
-  state = {
-    hasEntered: true,
+  constructor() {
+    super();
+    this.navItems = _.keysIn(components);
+    this.state = {
+      hasEntered: true,
+      currentComponent: this.navItems[0],
+    }
   }
 
   componentDidMount() {
     const { hasEntered } = this.state;
     if (hasEntered) {
       TweenMax.set(this.contextRef, { overflow: 'scroll', padding: '80px 0', height: 'auto' });
+    }
+  }
+
+  onNavClick = (nextComponent) => {
+    const { currentComponent } = this.state;
+    if (nextComponent !== currentComponent) {
+      this.animateComponentChange = new TimelineMax()
+        .set('.nav', { pointerEvents: 'none' })
+        .to(this.contentRef, 0.5, { autoAlpha: 0, ease: FADE_EASE })
+        .call(() => this.setState({ currentComponent: nextComponent }))
+        .to(document.documentElement, 0.5, { scrollTop: 0, ease: FADE_EASE })
+        .to(this.contentRef, 0.5, { autoAlpha: 1, ease: FADE_EASE })
+        .set('.nav', { pointerEvents: 'initial' })
     }
   }
 
@@ -95,17 +127,18 @@ class App extends React.Component {
   }
 
   render() {
-    const { hasEntered } = this.state;
+    const { hasEntered, currentComponent } = this.state;
+    const Component = components[currentComponent];
     return (
       <Wrapper ref={(ref) => { this.contextRef = ref; }}>
+        <Nav
+          items={this.navItems}
+          onClick={this.onNavClick}
+          currentComponent={currentComponent}
+        />
         <Title>Intro to Animation</Title>
-        <ContentWrapper>
-          {/* <Transitions /> */}
-          {/* <Keyframes /> */}
-          {/* <GSAP /> */}
-          {/* <FormExample /> */}
-          {/* <Takeaways /> */}
-          <ColorPicker />
+        <ContentWrapper ref={(ref) => { this.contentRef = ref; }}>
+          <Component />
         </ContentWrapper>
         {!hasEntered &&
           <IntroOverlay ref={(ref) => { this.overlayRef = ref; }}>

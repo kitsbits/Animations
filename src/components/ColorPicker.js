@@ -109,7 +109,6 @@ class ColorPicker extends React.Component {
 
   renderLetters = (available, currentLetter, place) => (
     _.map(available, (letter, i) => {
-      console.log(currentLetter === letter)
       return (
         <Letter
           key={`letter-${letter}-${i}`}

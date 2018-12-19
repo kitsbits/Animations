@@ -26,10 +26,10 @@ export default function Transitions() {
       </LittleWords>
       </WordsWrapper>
       <ContentWrapper>
-        <a href="#" class="p link">email@example.com</a>
-        <a href="/transitions" class="p underline">Go to here!</a>
-        <div class="p a-button">Press Me</div>
-        <div class="p close">X</div>
+        <a href="#" className="p link">email@example.com</a>
+        <a href="/transitions" className="p underline">Go to here!</a>
+        <div className="p a-button">Press Me</div>
+        <div className="p close">X</div>
       </ContentWrapper>
     </Wrapper>
   );
