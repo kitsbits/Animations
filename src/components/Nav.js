@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { withRouter } from 'react-router-dom';
 import { colors, media } from '../theme';
 import _ from 'lodash';
 
@@ -28,10 +29,11 @@ const Wrapper = styled.div`
 const Item = styled(PDefault)`
   font-size: 19px;
   line-height: 24px;
-  color: ${colors.purple};
+  color: ${props => props.isSelected ? colors.lightPurple : colors.purple};
   margin: 0 0 12px;
   cursor: pointer;
-  transition: transform 0.35s ease;
+  transition: all 0.35s ease;
+  pointer-events: ${props => props.isSelected ? 'none' : 'initial'};
 
   &:hover {
     transform: translateX(5px);
@@ -43,25 +45,29 @@ const Item = styled(PDefault)`
 `;
 
 class Nav extends React.Component {
-  renderNavItems = (items, onClick) => (
-    _.map(items, (item) => (
-      <Item
-        key={item}
-        onClick={() => onClick(item)}
-      >
-        {item}
-      </Item>
-    ))
+  renderNavItems = (items, onClick ) => (
+    _.map(items, (item) => {
+      const isSelected = this.props.location.pathname.substring(1) === item;
+      return (
+        <Item
+          key={item}
+          onClick={() => onClick(item)}
+          isSelected={isSelected}
+        >
+          {item}
+        </Item>
+      );
+    })
   )
 
   render() {
-    const { items, onClick } = this.props;
+    const { items, onClick  } = this.props;
     return (
       <Wrapper className="nav">
-        {this.renderNavItems(items, onClick)}
+        {this.renderNavItems(items, onClick )}
       </Wrapper>
     );
   }
 }
 
-export default Nav;
+export default withRouter(Nav);

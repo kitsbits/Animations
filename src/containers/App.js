@@ -82,8 +82,7 @@ class App extends React.Component {
   navItems = _.keysIn(components);
 
   onNavClick = (nextLocation = '/') => {
-    const currentLocation = _.slice(this.props.location.pathname, 1);
-    console.log(nextLocation);
+    const currentLocation = this.props.location.pathname.substring(1);
     if (nextLocation !== currentLocation) {
       this.animateComponentChange = new TimelineMax()
         .set('.nav', { pointerEvents: 'none' })
