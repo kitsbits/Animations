@@ -19,8 +19,9 @@ const Wrapper = styled.div`
     position: relative;
     flex-direction: row;
     flex-wrap: wrap;
-    transform: translate(32px, -40px);
+    transform: translateY(-40px);
     align-self: center;
+    padding: 0 25px;
   `}
 `;
 
