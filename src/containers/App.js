@@ -5,11 +5,12 @@ import _ from 'lodash';
 
 import { colors } from '../theme';
 import PBold from '../components/text/PBold';
-import FormExample from '../components/FormExample';
+import FormExample from '../components/Form';
 import Transitions from '../components/Transitions';
 import Keyframes from '../components/Keyframes';
 import GSAP from '../components/GSAP';
 import Takeaways from '../components/Takeaways';
+import ColorPicker from '../components/ColorPicker';
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -103,7 +104,8 @@ class App extends React.Component {
           {/* <Keyframes /> */}
           {/* <GSAP /> */}
           {/* <FormExample /> */}
-          <Takeaways />
+          {/* <Takeaways /> */}
+          <ColorPicker />
         </ContentWrapper>
         {!hasEntered &&
           <IntroOverlay ref={(ref) => { this.overlayRef = ref; }}>

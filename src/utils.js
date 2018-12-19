@@ -1,4 +1,5 @@
 import { keyframes } from 'styled-components';
+import _ from 'lodash';
 
 export const fadeIn = keyframes`
   0% { opacity: 0; }
@@ -58,3 +59,10 @@ export const states = [
   'Wisconsin',
   'Wyoming',
 ];
+
+const letters = ['A','B','C','D','E','F'];
+const numbers = ['0','1','2','3','4','5','6','7','8','9'];
+export const available = _.concat(letters, numbers);
+export const colors = _.map(_.range(100), () => {
+  return `#${_.join(_.map(_.range(6), () => _.sample(available)), '')}`;
+});
