@@ -46,12 +46,12 @@ const BlockToColor = styled.div`
   height: 300px;
   width: 900px;
   background-color: ${props => props.backgroundColor};
-  transition: background-color 0.65s ease-out;
+  transition: background-color 2s ease-out;
 `;
 
 const HexWrapper = styled.div`
   position: absolute;
-  right: 0;
+  right: 10px;
 `;
 
 const Hash = styled(PBold)`
@@ -71,7 +71,7 @@ const Letter = styled(Hash)`
   position: absolute;
   top: ${props => props.isVisible ? 0 : -12}px;
   opacity: ${props => props.isVisible ? 1 : 0};
-  transition: all 0.5s ${props => props.delay}s ease-in;
+  transition: all 0.65s ${props => props.delay}s ease-in-out;
 `;
 
 class ColorPicker extends React.Component {
@@ -79,8 +79,11 @@ class ColorPicker extends React.Component {
     currentColor: colors[0],
   }
 
-  onClick = (currentColor) => {
-    this.setState({ currentColor });
+  onClick = (nextColor) => {
+    const { currentColor } = this.state;
+    if (currentColor !== nextColor) {
+      this.setState({ currentColor: nextColor });
+    }
   }
 
   renderBlocks = (colors) => (
@@ -111,7 +114,7 @@ class ColorPicker extends React.Component {
         <Letter
           key={`letter-${letter}-${i}`}
           isVisible={currentLetter === letter}
-          delay={place * 0.1}
+          delay={_.min([i, 8]) * 0.15}
         >
           {letter}
         </Letter>
