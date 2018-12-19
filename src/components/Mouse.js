@@ -37,7 +37,7 @@ class Mouse extends React.Component {
           <Svg viewBox="0 0 57 96" id="mouse">
             <rect strokeWidth="4" x="2" y="2" width="53" height="92" rx="25" fill="none">
             </rect>
-            <line x1="28" y1="15" x2="28" y2="20" stroke={colors.darkGrey} strokeWidth="3" strokeLinecap="round">
+            <line x1="28" y1="15" x2="28" y2="20" stroke={colors.darkGrey} strokeWidth="4" strokeLinecap="round">
               <animate
                 attributeName="y2"
                 from="15"

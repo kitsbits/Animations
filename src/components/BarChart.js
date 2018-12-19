@@ -24,10 +24,10 @@ const ChartWrapper = styled.div`
   &:before {
     content: '';
     position: absolute;
-    top: 50px;
+    top: 52px;
     left: -10px;
     width: 5px;
-    height: calc(100% - 130px);
+    height: calc(100% - 135px);
     background-color: ${barColors[2]};
   }
 `;
@@ -69,7 +69,8 @@ class GSAP extends React.Component {
     const { data } = this.state;
     // const bars = this.chartRef.children;
     const bars = document.getElementById('chart').children;
-    // TweenMax.staggerTo(bars, 0.75, { width: 250, backgroundColor: barColors[0] }, 0.25)
+    // staggerTo takes and array!
+    // TweenMax.staggerTo(this.chartRef.children, 0.75, { width: 250, backgroundColor: barColors[0] }, 0.25)
     // console.dir(bars);
     _.each(bars, (bar, i) => {
       // console.log(bar);
@@ -86,7 +87,7 @@ class GSAP extends React.Component {
         </WordsWrapper>
         <ChartWrapper>
           <P>Bar Chart</P>
-          <Chart id="chart">
+          <Chart ref={(ref) => { this.chartRef = ref; }} id="chart">
             <Bar />
             <Bar />
             <Bar />
