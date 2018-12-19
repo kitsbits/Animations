@@ -63,8 +63,9 @@ const Hash = styled(PBold)`
 
 const LetterWrapper = styled.div`
   display: inline-block;
-  width: 10px;
-  margin-right: 5px;
+  width: 15px;
+  // height: 35px;
+  // background-color: blue;
 `;
 
 // render via ternaries or just pass values
