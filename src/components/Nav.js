@@ -13,6 +13,8 @@ const Wrapper = styled.div`
   top: 0;
   transform: translate(32px, 130px);
   transition: transform 0.35s ease;
+  user-select: none;
+
   ${media.navBreak`
     position: relative;
     flex-direction: row;

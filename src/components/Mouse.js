@@ -20,7 +20,7 @@ const Svg = styled.svg`
   fille: none;
 `;
 
-class Scroll extends React.Component {
+class Mouse extends React.Component {
   componentDidMount() {
     this.animateMouse = TweenMax.fromTo('#mouse', 0.85, { y: -5 }, { y: 0, repeat: -1, yoyo: true }).pause();
     this.animateMouse.play();
@@ -35,7 +35,7 @@ class Scroll extends React.Component {
         </WordsWrapper>
         <MouseWrapper>
           <Svg viewBox="0 0 57 96" id="mouse">
-            <rect stroke-width="4" x="2" y="2" width="53" height="92" rx="25" fill="none">
+            <rect strokeWidth="4" x="2" y="2" width="53" height="92" rx="25" fill="none">
             </rect>
             <line x1="28" y1="15" x2="28" y2="20" stroke={colors.darkGrey} strokeWidth="3" strokeLinecap="round">
               <animate
@@ -54,4 +54,4 @@ class Scroll extends React.Component {
   }
 }
 
-export default Scroll;
+export default Mouse;
