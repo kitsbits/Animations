@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { TweenMax } from 'gsap';
 import _ from 'lodash';
 
-import { colors, barColors } from '../theme';
+import { barColors } from '../theme';
 import PDefault from './text/PDefault';
 
 import {
@@ -62,6 +62,10 @@ class GSAP extends React.Component {
   }
 
   componentDidMount() {
+    // take a look at the TweenMax function \\
+    // what parameters does it take? \\
+    // what methods can it call? \\
+    console.dir(TweenMax);
     this.animateInChart();
   }
 
@@ -69,7 +73,7 @@ class GSAP extends React.Component {
     const { data } = this.state;
     // const bars = this.chartRef.children;
     const bars = document.getElementById('chart').children;
-    // staggerTo takes and array!
+    // staggerTo takes and array! \\
     // TweenMax.staggerTo(this.chartRef.children, 0.75, { width: 250, backgroundColor: barColors[0] }, 0.25)
     // console.dir(bars);
     _.each(bars, (bar, i) => {

@@ -1,8 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
-import { colors } from '../theme';
-import { TimelineMax, TweenMax, Elastic } from 'gsap';
+import { colors, media } from '../theme';
+import { TimelineMax, Elastic } from 'gsap';
 
 import PBold from '../components/text/PBold';
 
@@ -32,6 +32,10 @@ const OverlayTitle = styled(PBold)`
   line-height: 75px;
   position: relative;
   user-select: none;
+  ${media.small`
+    font-size: 55px;
+    line-height: 55px;
+  `}
 `;
 
 const Repo = styled(PBold)`
@@ -45,14 +49,15 @@ const Repo = styled(PBold)`
   color: ${colors.orange};
   letter-spacing: 1.5px;
   white-space: nowrap;
+  ${media.small`
+    font-size: 16px;
+    line-height: 32px;
+    letter-spacing: normal;
+    padding: 0 10px;
+  `}
 `;
 
 class Intro extends React.Component {
-  componentDidMount() {
-    this.animateMouse = TweenMax.fromTo('#mouse', 0.85, { y: -5 }, { y: 0, repeat: -1, yoyo: true }).pause();
-    this.animateMouse.play();
-  }
-
   enter = () => {
     this.animateEnter = new TimelineMax()
       .addLabel('start')

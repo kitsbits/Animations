@@ -67,6 +67,7 @@ const LetterWrapper = styled.div`
   margin-right: 5px;
 `;
 
+// render via ternaries or just pass values
 const Letter = styled(Hash)`
   position: absolute;
   top: ${props => props.isVisible ? 0 : -12}px;
@@ -82,6 +83,7 @@ class ColorPicker extends React.Component {
   onClick = (nextColor) => {
     const { currentColor } = this.state;
     if (currentColor !== nextColor) {
+      // update state with the color of the block that was clicked
       this.setState({ currentColor: nextColor });
     }
   }
@@ -137,6 +139,7 @@ class ColorPicker extends React.Component {
             <Hash>#</Hash>
             {this.renderLetterWrappers(available, _.slice(currentColor, 1))}
           </HexWrapper>
+          {/* pass the current color selected to the BlockToColor component */}
           <BlockToColor backgroundColor={currentColor} />
         </ContentWrapper>
       </Wrapper>

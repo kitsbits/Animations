@@ -21,5 +21,10 @@ export const media = {
       ${css(...args)}
     }
   `,
+  small: (...args) => css`
+    @media (max-width: 640px) {
+      ${css(...args)}
+    }
+  `,
 }
 

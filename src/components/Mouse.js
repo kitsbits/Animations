@@ -23,6 +23,7 @@ const Svg = styled.svg`
 class Mouse extends React.Component {
   componentDidMount() {
     this.animateMouse = TweenMax.fromTo('#mouse', 0.85, { y: -5 }, { y: 0, repeat: -1, yoyo: true }).pause();
+    // check out pause(), play(), reverse(), restart() methods \\
     this.animateMouse.play();
   }
 
