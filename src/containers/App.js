@@ -32,6 +32,24 @@ const Title = styled(PBold)`
   color: ${colors.darkGrey};
   cursor: pointer;
   user-select: none;
+  position: relative;
+  
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 3px;
+    transition: width 0.15s ease;
+    background-color: ${colors.purple};
+  }
+
+  &:hover {
+    &:before {
+      width: 20px;
+    }
+  }
 `;
 
 const ContentWrapper = styled.div`
