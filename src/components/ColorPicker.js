@@ -127,7 +127,7 @@ class ColorPicker extends React.Component {
       <Wrapper>
         <WordsWrapper>
           <BigWords>Styled Components</BigWords>
-          <LittleWords>Pass props right into your styles</LittleWords>
+          <LittleWords>Pass props for dynamic styling</LittleWords>
         </WordsWrapper>
         <ContentWrapper>
           <BlocksWrapper>

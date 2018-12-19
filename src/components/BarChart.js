@@ -82,7 +82,7 @@ class GSAP extends React.Component {
       <Wrapper>
         <WordsWrapper>
           <BigWords>TweenMax</BigWords>
-          <LittleWords>The ease of CSS with the tools of Javascript</LittleWords>
+          <LittleWords>Animate CSS with Javascript</LittleWords>
         </WordsWrapper>
         <ChartWrapper>
           <P>Bar Chart</P>
