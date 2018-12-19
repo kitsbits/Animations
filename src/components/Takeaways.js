@@ -45,6 +45,8 @@ export default function Takeaways() {
         <LittlerWords>The <A href="https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame">MDN docs</A> give you the basics, though they are not wholly informative on how or why you should use RequestAnimationFrame.</LittlerWords>
         <LittlerWords>Here's an older post but better <A href="http://creativejs.com/resources/requestanimationframe/index.html">introduction to RequestAnimationFrame</A></LittlerWords>
         <LittlerWords>And a more <A href="https://medium.com/@bdc/gain-motion-superpowers-with-requestanimationframe-ecc6d5b0d9a4">in-depth example</A></LittlerWords>
+        <LittlerWords>Some info on frames more generally and <A href="https://itnext.io/javascript-raf-requestanimationframe-456f8a0d04b0">requestAnimationFrame more specifically</A></LittlerWords>
+        <Quote>An animation is nothing but an illusion because things presented to us are in frames and not in continuous motion.</Quote>
       </WordsWrapper>
       <WordsWrapper>
         <BigWords>Draw on the Canvas</BigWords>

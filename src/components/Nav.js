@@ -18,7 +18,7 @@ const Wrapper = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     transform: translate(32px, -40px);
-    align-self: flex-start;
+    align-self: center;
   `}
 `;
 

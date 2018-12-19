@@ -27,7 +27,7 @@ export default function Transitions() {
       </WordsWrapper>
       <ContentWrapper>
         <a href="#" className="p link">email@example.com</a>
-        <a href="/transitions" className="p underline">Go to here!</a>
+        <a href="#" className="p underline">Go to here!</a>
         <div className="p a-button">Press Me</div>
         <div className="p close">X</div>
       </ContentWrapper>

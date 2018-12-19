@@ -8,10 +8,10 @@ import PBold from '../components/text/PBold';
 import Form from '../components/Form';
 import Nav from '../components/Nav';
 import Transitions from '../components/Transitions';
-import Keyframes from '../components/Keyframes';
 import BarChart from '../components/BarChart';
 import Takeaways from '../components/Takeaways';
 import ColorPicker from '../components/ColorPicker';
+import Scroll from '../components/Scroll';
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -61,9 +61,9 @@ const ContentWrapper = styled.div`
 
 const components = {
   Transitions,
-  Keyframes,
   'Color Picker': ColorPicker,
   'Bar Chart': BarChart,
+  Scroll,
   Form,
   Takeaways,
 };
@@ -75,8 +75,17 @@ class App extends React.Component {
     super();
     this.navItems = _.keysIn(components);
     this.state = {
+      // set to true to enter animation on reload
       hasEntered: true,
-      currentComponent: this.navItems[0],
+      // change index when playing around on a specific page
+      // to stay on that page on reload
+      currentComponent: this.navItems[2],
+      // Transitions: 0
+      // ColorPicker: 1
+      // BarChart: 2
+      // Scroll: 2
+      // Form: 4
+      // Takeaways: 5
     }
   }
 

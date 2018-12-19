@@ -68,7 +68,7 @@ class Transitions extends React.Component { // eslint-disable-line
       <Wrapper>
         <WordsWrapper>
           <BigWords>Putting it all together</BigWords>
-          <LittleWords>...in the boringest way possible: forms.</LittleWords>
+          <LittleWords>...in the boringest way possible: forms</LittleWords>
         </WordsWrapper>
         <ContentWrapper>
           <Column className="no-transition">

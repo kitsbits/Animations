@@ -69,14 +69,14 @@ body {
   line-height: 40px;
   text-align: center;
   cursor: pointer;
-  color: var(--orange);
-  border: 1px solid var(--orange);
+  color: var(--purple);
+  border: 1px solid var(--purple);
   transition: all 0.35s ease;
 }
 
 .a-button:hover {
   color: white;
-  background-color: var(--orange);
+  background-color: var(--purple);
 }
 
 .underline {
@@ -93,7 +93,7 @@ body {
   left: 50%;
   width: 0;
   height: 2px;
-  background-color: var(--orange);
+  background-color: var(--purple);
   transform: translateX(-50%);
   transition: width 0.35s ease;
 }
@@ -108,20 +108,20 @@ body {
 }
 
 .link:hover {
-  color: var(--orange);
+  color: var(--purple);
 }
 
 .close {
   height: 40px;
   width: 40px;
-  border: 1px solid var(--orange);
+  border: 1px solid var(--purple);
   border-radius: 50px;
   cursor: pointer;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--orange);
+  color: var(--purple);
   font-size: 25px;
 }
 
@@ -134,7 +134,7 @@ body {
   left: 50%;
   border-radius: 50px;
   transform: translate(-50%, -50%) scale(0.5);
-  border: 1px solid var(--orange);
+  border: 1px solid var(--purple);
   transition: opacity 0.25s ease, transform 0.5s ease;
   opacity: 0;
 }
@@ -142,34 +142,6 @@ body {
 .close:hover::before {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
-}
-
-/******************/
-/** KEYFRAMES.js **/
-/******************/
-
-.fade-in {
-  width: 75px;
-  height: 100px;
-  background-color: var(--orange);
-  margin-bottom: 25px;
-  opacity: 0;
-  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
-  animation: fadeIn 0.5s ease-in 1s forwards;
-}
-
-.grow {
-  width: 0;
-  height: 100px;
-  background-color: var(--orange);
-  animation: fadeInAndGrow 1s 1s forwards;
-  margin-bottom: 15px;
-}
-
-.bar {
-  width: 20px;
-  height: 50px;
-  margin-bottom: 10px;
 }
 
 /******************/

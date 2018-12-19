@@ -17,36 +17,42 @@ const Wrapper = styled.div`
   user-select: none;
 `;
 
-const Row = styled.div`
+const ChartWrapper = styled.div`
   position: relative;
   margin: 0 auto 50px;
   max-width: 80%;
-  &:not(:last-child) {
-    border-bottom: 1px solid ${colors.darkGrey};
-  }
-  &.chart {
-    &:before {
-      content: '';
-      position: absolute;
-      top: 50px;
-      left: -10px;
-      width: 5px;
-      height: calc(100% - 100px);
-      background-color: ${barColors[2]};
-    }
+  &:before {
+    content: '';
+    position: absolute;
+    top: 50px;
+    left: -10px;
+    width: 5px;
+    height: calc(100% - 130px);
+    background-color: ${barColors[2]};
   }
 `;
 
 const P = styled(PDefault)`
   &.click {
+    display: inline-block;
     cursor: pointer;
     transition: all 0.35s ease;
     position: relative;
     &:hover {
-      color: ${barColors[0]};
+      color: ${barColors[2]};
       transform: translateX(10px);
     }
   }
+`;
+
+const Chart = styled.div`
+  margin-bottom: 10px;
+`;
+
+const Bar = styled.div`
+  width: 20px;
+  height: 50px;
+  margin-bottom: 10px;
 `;
 
 
@@ -61,7 +67,9 @@ class GSAP extends React.Component {
 
   animateInChart = () => {
     const { data } = this.state;
+    // const bars = this.chartRef.children;
     const bars = document.getElementById('chart').children;
+    // TweenMax.staggerTo(bars, 0.75, { width: 250, backgroundColor: barColors[0] }, 0.25)
     // console.dir(bars);
     _.each(bars, (bar, i) => {
       // console.log(bar);
@@ -73,19 +81,19 @@ class GSAP extends React.Component {
     return (
       <Wrapper>
         <WordsWrapper>
-          <BigWords></BigWords>
-          <LittleWords></LittleWords>
+          <BigWords>TweenMax</BigWords>
+          <LittleWords>The ease of CSS with the tools of Javascript</LittleWords>
         </WordsWrapper>
-        <Row className="chart">
+        <ChartWrapper>
           <P>Bar Chart</P>
-          <div id="chart">
-            <div className="bar" />
-            <div className="bar" />
-            <div className="bar" />
-            <div className="bar" />
-          </div>
+          <Chart id="chart">
+            <Bar />
+            <Bar />
+            <Bar />
+            <Bar />
+          </Chart>
           <P onClick={this.animateInChart} className="click"> -- AGAIN!</P>
-        </Row>
+        </ChartWrapper>
       </Wrapper>
     );
   }
